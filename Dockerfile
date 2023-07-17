@@ -3,7 +3,7 @@ FROM  centos:latest
 RUN echo "mirrorlist=http://mirrorlist.centos.org/?release=8&arch=x86_64&repo=AppStream&infra=$infra" > /etc/yum.repos.d/CentOS-AppStream.repo
 
 # Update the package manager metadata
-RUN yum update -y
+#RUN yum update -y
 
 # Install required packages
 RUN yum install -y httpd unzip
