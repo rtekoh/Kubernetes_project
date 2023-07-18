@@ -1,6 +1,8 @@
 FROM  centos:latest
 # Set an alternative mirror for CentOS AppStream
-RUN echo "mirrorlist=http://vault.centos.org/?release=8&arch=x86_64&repo=AppStream&infra=$infra" > /etc/yum.repos.d/CentOS-AppStream.repo
+RUN echo "mirrorlist=http://vault.centos.org/?release=8&arch=x86_64&repo=AppStream&infra=$infra" > /etc/yum.repos.d/CentOS-AppStream.repo && \
+    sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && \
+    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 
 # Update the package manager metadata
 RUN yum -y install httpd && \
