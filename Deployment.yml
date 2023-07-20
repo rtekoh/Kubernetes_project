@@ -14,7 +14,7 @@ spec:
       spec:
        containers:
         - name: bobdevops
-          image: rtekoh/pipeline-demo:latest
+          image: rtekoh/pipeline-demo
           imagePullPolicy: Always
           ports:
           - containerPort: 80
