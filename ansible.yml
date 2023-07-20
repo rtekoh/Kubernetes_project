@@ -1,11 +1,14 @@
 - hosts: all
   become: true
   tasks: 
-     - name: check current server ip
-       command: sudo hostname -I
-     - name: check working dir
-       command: cd /home/ubuntu
+    #  - name: check current server ip
+    #    command: sudo hostname -I
+    #  - name: check working dir
+    #    command: cd /home/ubuntu && kubectl apply -f Deployment.yml
      - name: create new deployment
        command: kubectl apply -f Deployment.yml
+       args: 
+          chdir: /home/ubuntu
+
     #  - name: create new service
     #    command: kubectl apply -f /home/ubuntu/Service.yml
