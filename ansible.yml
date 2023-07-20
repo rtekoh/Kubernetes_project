@@ -4,8 +4,8 @@
      - name: check current server ip
        command: sudo hostname -I
      - name: check working dir
-       command: sudo pwd
+       command: cd /home/ubuntu
      - name: create new deployment
-       command: kubectl apply -f /home/ubuntu/Deployment.yml
+       command: kubectl apply -f Deployment.yml
     #  - name: create new service
     #    command: kubectl apply -f /home/ubuntu/Service.yml
